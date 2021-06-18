@@ -1,9 +1,9 @@
 import React from "react";
 import Congrats from "./congrats";
 import { shallow } from "enzyme";
-import { findByTestAttr ,checkProps } from "../test/testUtils";
+import { findByTestAttr, checkProps } from "../test/testUtils";
 
-const defaultProps = { success:false};
+const defaultProps = { success: false };
 
 /**
  * function to create shallow wrapper for app component
@@ -12,7 +12,7 @@ const defaultProps = { success:false};
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}) => {
-  const setupProps= {...defaultProps, ...props};
+  const setupProps = { ...defaultProps, ...props };
   return shallow(<Congrats {...props} />);
 };
 
@@ -36,5 +36,5 @@ test("renders non-empty success text when success props is true", () => {
 
 test("doesnot throw warning with expected props", () => {
   const expectedProps = { success: false };
-  checkProps(Congrats,expectedProps);
+  checkProps(Congrats, expectedProps);
 });

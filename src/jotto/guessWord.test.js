@@ -15,7 +15,7 @@ const setup = (state = {}) => {
   return wrapper;
 };
 
-describe("no words guessed", () => {
+describe.skip("no words guessed", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = setup({
@@ -30,7 +30,7 @@ describe("no words guessed", () => {
   });
 });
 
-describe("some words guessed", () => {
+describe.skip("some words guessed", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = setup({
@@ -45,7 +45,7 @@ describe("some words guessed", () => {
   });
 });
 
-describe("guess secret word", () => {
+describe.skip("guess secret word", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = setup({
@@ -54,14 +54,12 @@ describe("guess secret word", () => {
       guessedWords: [{ guessedWord: "agile", letterMatchCount: 1 }],
     });
     const inputBox = findByTestAttr(wrapper, "input-box");
-  const mockEvent= {target: { value: "party" }}
-  inputBox.simulate("change", mockEvent);
-  
-  const submitButton = findByTestAttr(wrapper, "submit-button");
-  submitButton.simulate("click", { preventDefault() {} });
-  });
+    const mockEvent = { target: { value: "party" } };
+    inputBox.simulate("change", mockEvent);
 
-  
+    const submitButton = findByTestAttr(wrapper, "submit-button");
+    submitButton.simulate("click", { preventDefault() {} });
+  });
 
   test("adds row to guessedWords table", () => {
     const guessedWordsRows = findByTestAttr(wrapper, "guessed-word");
